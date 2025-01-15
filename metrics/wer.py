@@ -6,7 +6,9 @@ from tqdm import tqdm
 from jiwer import wer
 import soundfile as sf
 import scipy.stats as sts
-from config import TMP_PATH
+# from config import TMP_PATH
+
+TMP_PATH = "/content/tmp"
 
 
 class WER:
@@ -29,6 +31,8 @@ class WER:
         self.asr_model_name = asr_model_name
         self.device = "cuda:0" if torch.cuda.is_available() else "cpu"
         self.__temp_audio_path = os.path.join(TMP_PATH, "temp_audio.wav")
+        if not os.path.exists(TMP_PATH):
+            os.makedirs(TMP_PATH)
         self.__wer_results = None
 
     def __load_llm_model_and_tokenizer(self):
