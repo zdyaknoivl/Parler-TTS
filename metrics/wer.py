@@ -6,9 +6,7 @@ from tqdm import tqdm
 from jiwer import wer
 import soundfile as sf
 import scipy.stats as sts
-# from config import TMP_PATH
-
-TMP_PATH = "/content/tmp"
+from config import TMP_PATH
 
 
 class WER:
